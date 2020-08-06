@@ -7,6 +7,8 @@ wait
 # find ./ -type f -iname "*.tar.zst" -exec gpg2 -b {} \;
 find ./ -type f -exec gpg2 -b {} \;
 wait
+rm -rf ./index.html.sig
+wait
 repo-add -n -R aur-kernel.db.tar.gz *.pkg.tar.zst
 wait
 rm -rf aur-kernel.db
