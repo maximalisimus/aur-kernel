@@ -1,5 +1,12 @@
 #!/bin/bash
 #
+rm -rf *.sig
+wait
+# find ./ -type f -iname "*.tar.xz" -exec gpg2 -b {} \;
+# wait
+# find ./ -type f -iname "*.tar.zst" -exec gpg2 -b {} \;
+find ./ -type f -exec gpg2 -b {} \;
+wait
 repo-add -n -R aur-kernel.db.tar.gz *.pkg.tar.zst
 wait
 rm -rf aur-kernel.db
