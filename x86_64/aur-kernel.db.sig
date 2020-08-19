@@ -1,1 +1,0 @@
-aur-kernel.db.tar.gz.sig
