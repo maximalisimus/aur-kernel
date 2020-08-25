@@ -1,0 +1,4 @@
+030f92b9fe4bdf4c1558b812e2e98fd5  linux-lts316.tar.gz
+fadd4de21bf09729e1d0387a3f361f76  linux-lts414.tar.gz
+07d6d5e5995cbc506517af6777d19ccb  linux-lts44.tar.gz
+fc0b748810f0dca880d3aa5990cf3e15  linux-lts49.tar.gz

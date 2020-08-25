@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+ 
+ <html>
+<head>
+<title>
+404 Error!
+</title>
+<meta http-equiv="content-type" content="text/html; charset=utf8">
+
+<style>
+ .layermensaje { FONT-SIZE: 10pt; COLOR: #ff0000; LINE-HEIGHT: 10pt; FONT-FAMILY: "Courier New" }
+</style>
+</head>
+<!- Имитация консоли
+
+Copyright (C) WINsoft 1997-2007-->
+
+<body bgColor="#000000" onload=teclear();>
+
+
+<SCRIPT language=javascript>
+<!--
+mensaje=
+'<p align="left"><font size="3" face="Courier New">Проверка прав доступа к серверу. Пожалуйста, подождите  . . . . . . . . . . . . .  </font></p>'+'<br>'+
+'<font size="3"color=#ff0000><br /> Публичный доступ разрешен            <br>       '    +
+'<br /> Инициализация                <br>           '+
+'<br />           </font>'+
+'<p align="left"><font size="3"color=#ff0000>Пользователь:</font><font size="3"color=#ffffff> Не авторизован! </font><font size="3"color=#ff0000>Пароль:</font><font size="3"color=#ffffff> ********** <br>'+
+'                    <br></font>'+
+'<font size="3"color=#ff0000>Попытка авторизации ...<br></font>'+
+'                    <br>'+
+'<font size="3"color=#ff0000>domain:</font><font size="3"color=#ffffff> user@github.io </font><br>'+
+'<font size="3"color=#ff0000>protocol:</font><font size="3"color=#ffffff> TCPIP </font><br>'+
+'<font size="3"color=#ff0000>port:</font><font size="3"color=#ffffff> 8080 <br>'+
+'<br />           '+
+'<font size="3"color=#ff0000>Пользователь:</font><font size="3"color=#ffffff> user@gmail.com</font><font size="3"color=#ff0000> Пароль:</font><font size="3"color=#ffffff> *******<br>'+
+'<font size="3"color=#ff0000>Пользователь:</font><font size="3"color=#ffffff> user@mail.ru</font><font size="3"color=#ff0000>&nbsp;&nbsp;&nbsp;Пароль:</font><font size="3"color=#ffffff> **********<br>'+
+'<font size="3"color=#ff0000>Пользователь:</font><font size="3"color=#ffffff> user@yandex.ru</font><font size="3"color=#ff0000>&nbsp;Пароль:</font><font size="3"color=#ffffff> *********<br>'+
+'                    </font><br>'+
+'<font size="3"color=#ff0000>Доступ запрещён !  <br></font>'+
+'<p align="left"><font size="3"color="Blue">Ошибка доступа !<br></font>'+
+'<font size="3"color=#ff0000>                    <br></font>'+
+'<font size="3"color=#ffffff>404 ! Страница не нейдена !<br></font>'+
+'<font size="3"color=#ffffff>                    <br></font>'+
+'<font size="3"color="Yellow">Удаление репозитория ! Пожалуйста подождите ...<br>'+
+'                                                                     <br></font>'+
+'<font size="3"color="Gray">Removing data and files (27/50) ...<br>'+
+'                                             <br></font>'+
+'<font size="3"color=#ffffff>Завершение работы сервера .........<br></font>'+
+'<font size="3"color=#ff0000>                    <br></font>'+
+'<p align="left"> <b><font size="4"color="Gray">Please wait (25/30 seconds). The system will be turned off.....</font></b> <br>'
+
+line=0
+cursor='_'
+
+function teclear()
+ {
+  if(line==mensaje.length) cursor=''
+    ttecleado.innerHTML=mensaje.substring(0,line)+cursor
+  if(line++<mensaje.length) setTimeout("teclear()",45)
+ }
+//-->
+</script>
+<div class="layermensaje" id=ttecleado ?></div>
+</body>
+</html>
