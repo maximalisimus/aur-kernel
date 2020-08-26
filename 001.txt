@@ -36,3 +36,13 @@ https://www.archlinux.org/packages/?sort=&q=openssh&maintainer=&flagged=
 
 https://aur.archlinux.org/packages/?O=0&K=rstudio
 
+
+
+
+
+							<a href="#hidden5" onclick="view('hidden5'); return false">More detailed...</a>
+							<div id="hidden5" style="display: none;">
+								<a href="###">git</a><br>
+							</div>
+
+
