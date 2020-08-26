@@ -34,5 +34,9 @@ function funonload() {
 function ClearOnPage() {
 	document.body.innerHTML=olg_page;
 	document.getElementById("inform").value = "";
-}	
+}
+function view(n) {
+    style = document.getElementById(n).style;
+    style.display = (style.display == 'block') ? 'none' : 'block';
+}
 window.onload = funonload;

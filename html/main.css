@@ -151,6 +151,30 @@ table.results {
 	vertical-align: top;
 	border-bottom: 1px solid #999;
 }
+.results td:nth-of-type(1) {
+	width: 200px;
+} /* Name */
+.results td:nth-of-type(2) {
+	width: 100px;
+} /* Version */
+.results td:nth-of-type(3) {
+	width: 50px;
+} /* Arch */
+.results td:nth-of-type(4) {
+	width: 50px;
+} /* Last Updated */
+.results td:nth-of-type(5) {
+	width: 50px;
+} /* License */
+.results td:nth-of-type(6) {
+	width: 100px;
+} /* Depends */
+.results td:nth-of-type(7) {
+	width: 100px;
+} /* Optdepends */
+.results td:nth-of-type(8) {
+	width: 100px;
+} /* Makedepends */
 .results td a:link {
 	text-decoration: none;
 	color: #1793D1;
