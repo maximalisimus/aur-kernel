@@ -7,6 +7,29 @@
 	<title>Release</title>
 	<link rel="stylesheet" href="html/main.css">
 	<script src="html/script.js"></script>
+	<link rel="stylesheet" href="html/tablesorter/theme.default.min.css">
+	<script type="text/javascript" src="html/tablesorter/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="html/tablesorter/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="html/tablesorter/jquery.tablesorter.pager.js"></script>
+	<script type="text/javascript" src="html/tablesorter/jquery.tablesorter.widgets.min.js"></script>
+	<script>
+		$(function() {
+			$("#myTable").tablesorter({
+				theme: 'default',
+				widgets:['zebra'],
+				cancelSelection:false
+			}).tablesorterPager({
+				size:10,
+				container:$('#pager'),
+				positionFixed:false,
+				page:10,
+				cssNext:'.next',
+				cssPrev:'.prev',
+				cssFirst:'.first',
+				cssLast:'.last'
+			});
+		});
+	</script>
 </head>
 <body>
 	<div class="site">
@@ -57,7 +80,7 @@
 		</div>
 		<div class="content">
 			<p>Найдено: 8 пакетов.</p>
-			<table class="results">
+			<table id="myTable" class="results tablesorter">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -65,10 +88,10 @@
 						<th>Arch</th>
 						<th>Last Updated</th>
 						<th>License</th>
-						<th>Depends</th>
-						<th>Optdepends</th>
-						<th>Makedepends</th>
-						<th>Description</th>
+						<th class="tablesorter-noSort">Depends</th>
+						<th class="tablesorter-noSort">Optdepends</th>
+						<th class="tablesorter-noSort">Makedepends</th>
+						<th class="tablesorter-noSort">Description</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -124,9 +147,61 @@
 						</td>
 						<td>A powerful and productive integrated development environment (IDE) for R programming language</td>
 					</tr>
+					<tr>
+						<td><a href="###">p7zip-gui</a></td>
+						<td>3.5</td>
+						<td>x86_64</td>
+						<td>2020-02-12</td>
+						<td>GPL</td>
+						<td>
+							<a href="#hidden4" onclick="view('hidden4'); return false">More detailed...</a>
+							<div id="hidden4" style="display: none;">
+								<a href="###">r</a>>=3.0.1<br>
+								<a href="###">boost-libs</a><br>
+								<a href="###">qt5-sensors</a><br>
+								<a href="###">qt5-svg</a><br>
+								<a href="###">qt5-webengine</a><br>
+								<a href="###">qt5-xmlpatterns</a><br>
+								<a href="###">postgresql-libs</a><br>
+								<a href="###">sqlite3</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden5" onclick="view('hidden5'); return false">More detailed...</a>
+							<div id="hidden5" style="display: none;">
+								<a href="###">git</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden6" onclick="view('hidden6'); return false">More detailed...</a>
+							<div id="hidden6" style="display: none;">
+								<a href="###">git</a><br>
+								<a href="###">cmake>=3.1.0</a><br>
+								<a href="###">boost</a><br>
+								<a href="###">desktop-file-utils</a><br>
+								<a href="###">jdk8-openjdk</a><br>
+							</div>
+						</td>
+						<td>A powerful and productive integrated development environment (IDE) for R programming language</td>
+					</tr>
 				</tbody>
 			</table>
-			<p>Страница 1 из 1 (Page 1 of 1).</p>
+			<div id="pager" class="pager">
+				<form>
+					<img src="html/images/first.png" class="first" />
+					<img src="html/images/prev.png" class="prev" />
+					<input type="text" class="pagedisplay" />
+					<img src="html/images/next.png" class="next" />
+					<img src="html/images/last.png" class="last" />
+					<select class="pagesize">
+						<option selected="selected" value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+						<option value="40">40</option>
+						<option value="50">50</option>
+					</select>
+				</form>
+			</div>
 			<hr>
 			<p class="back"><a href="https://maximalisimus.github.io/aur-kernel/">&laquo; Назад (Back)</a></p>
 		</div>
