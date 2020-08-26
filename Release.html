@@ -25,7 +25,7 @@
 					<li><a href="https://maximalisimus.github.io/aur-kernel/Release.html">Release</a></li>
 				</ul>
 			</div>
-			<div style="clear:both"></div>
+			<div style="clear:both;"></div>
 		</div>
 		<div class="content">
 			<div class="oninfo">
@@ -38,6 +38,22 @@
 				<input name="btn" id="btn" type="button" onclick="javascript: FindOnPage('find'); return false;" value="Поиск"/>
 			</div>
 			<div style="clear: both;"></div>
+		</div>
+		<div class="content">
+			<p><b>Last Updated</b> - Дата последней сборки пакета в данном репозитории.<br>
+				Date when the package was last built in this repository.
+			</p>
+			<p><b>Depends</b> - Массив имен пакетов, которые должны быть установлены для запуска программы из данного пакета.<br>
+				An array of packages that must be installed for the software to build and run.
+			</p>
+			<p><b>Optdepends</b> - Массив имен пакетов, которые не требуются для работы программы, но предлагают дополнительные функции.
+				Это может означать, что не все исполняемые файлы, предоставляемые пакетом, будут работать без соответствующих дополнительных зависимостей.<br>
+				An array of packages that are not needed for the software to function, but provide additional features.
+				This may imply that not all executables provided by a package will function without the respective optdepends.
+			</p>
+			<p><b>Makedepends</b> - Массив имен пакетов, которые должны быть установлены лишь для сборки пакета, но не нужны для использования программы после установки.<br>
+				An array of packages that are only required to build the software.
+			</p>
 		</div>
 		<div class="content">
 			<p>Найдено: 8 пакетов.</p>
