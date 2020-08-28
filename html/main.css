@@ -98,6 +98,17 @@ BODY {
 	text-decoration: underline;
 	color: #1793D1;
 }
+#menu #myselect a {
+	text-decoration: none;
+	color: #1793D1;
+}
+#menu #myselect a:visited {
+	text-decoration: none;
+}
+#menu #myselect a:hover {
+	text-decoration: underline;
+	color: white;
+}
 .content {
 	margin: 10px 20px 10px 20px;
 	padding: 10px;
