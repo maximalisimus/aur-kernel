@@ -166,16 +166,16 @@ table.results {
 	width: 200px;
 } /* Name */
 .results td:nth-of-type(2) {
-	width: 100px;
+	width: 150px;
 } /* Version */
 .results td:nth-of-type(3) {
-	width: 50px;
+	width: 100px;
 } /* Arch */
 .results td:nth-of-type(4) {
-	width: 50px;
+	width: 100px;
 } /* Last Updated */
 .results td:nth-of-type(5) {
-	width: 50px;
+	width: 100px;
 } /* License */
 .results td:nth-of-type(6) {
 	width: 100px;
