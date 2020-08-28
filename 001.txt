@@ -37,6 +37,7 @@ https://www.archlinux.org/packages/?sort=&q=openssh&maintainer=&flagged=
 https://aur.archlinux.org/packages/?O=0&K=rstudio
 
 
+https://maximalisimus.github.io/aur-kernel/
 
 
 
