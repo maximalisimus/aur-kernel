@@ -24,6 +24,57 @@ function update_repo()
 	apindex .
 	wait
 }
+function update_any_repo()
+{
+	_in_flags="$1"
+	if [[ ${_in_flags} -eq 1 ]]; then
+		for j in ${_repo_any_type[*]}; do
+			update_repo "$_name_repo" "$j"
+			wait
+		done
+	fi
+	wait
+	apindex .
+	wait
+}
+function update_i686_repo()
+{
+	_in_flags="$1"
+	if [[ ${_in_flags} -eq 1 ]]; then
+		for j in ${_repo_i686_type[*]}; do
+			update_repo "$_name_repo" "$j"
+			wait
+		done
+	fi
+	wait
+	apindex .
+	wait
+}
+function update_x86_64_repo()
+{
+	_in_flags="$1"
+	if [[ ${_in_flags} -eq 1 ]]; then
+		for j in ${_repo_x86_64_type[*]}; do
+			update_repo "$_name_repo" "$j"
+			wait
+		done
+	fi
+	wait
+	apindex .
+	wait
+}
+function update_pkg_repo()
+{
+	_architectures="$1"
+	_work_dir="$2"
+	_on_flags="$3"
+	cd ${_work_dir}
+	case ${_architectures} in
+		"${_full_arch[0]}") update_any_repo "${_on_flags}";;
+		"${_full_arch[1]}") update_i686_repo "${_on_flags}";;
+		"${_full_arch[2]}") update_x86_64_repo "${_on_flags}";;
+	esac
+}
 function full_update()
 {
 	if [[ $_pkgbuild_bool -eq 1 ]]; then
@@ -35,71 +86,7 @@ function full_update()
 	fi
 	count=0
 	for i in ${_arches[*]}; do
-		if [[ $i == "i686" ]]; then
-			if [[ ${_flag_update[$count]} -eq 1 ]]; then
-				### DEBUG
-				# echo "$i YES Update"
-				### DEBUG
-				cd ${_repo_os_dir}/$i
-				for j in ${_repo_i686_type[*]}; do
-					update_repo "$_name_repo" "$j"
-					wait
-					### DEBUG
-					# echo "$j"
-					### DEBUG
-				done
-				wait
-			else
-				cd ${_repo_os_dir}/$i
-				apindex .
-				wait
-				### DEBUG
-				# echo "$i NOT Update"
-				### DEBUG
-			fi
-		elif [[ $i == "x86_64" ]]; then
-			if [[ ${_flag_update[$count]} -eq 1 ]]; then
-				### DEBUG
-				# echo "$i YES Update"
-				### DEBUG
-				cd ${_repo_os_dir}/$i
-				for j in ${_repo_x86_64_type[*]}; do
-					update_repo "$_name_repo" "$j"
-					wait
-					### DEBUG
-					# echo "$j"
-					### DEBUG
-				done
-			else
-				cd ${_repo_os_dir}/$i
-				apindex .
-				wait
-				### DEBUG
-				# echo "$i NOT Update"
-				### DEBUG
-			fi
-		else
-			if [[ ${_flag_update[$count]} -eq 1 ]]; then
-				### DEBUG
-				# echo "$i YES Update"
-				### DEBUG
-				for j in ${_repo_any_type[*]}; do
-					update_repo "$_name_repo" "$j"
-					wait
-					### DEBUG
-					# echo "$j"
-					### DEBUG
-				done
-				### DEBUG
-			else
-				cd ${_repo_os_dir}/$i
-				apindex .
-				wait
-				### DEBUG
-				# echo "$i NOT Update"
-				### DEBUG
-			fi
-		fi
+		update_pkg_repo "$i" "${_repo_os_dir}/$i" "${_flag_update[$count]}"
 		let count+=1
 	done
 	wait
