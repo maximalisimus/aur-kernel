@@ -1,7 +1,7 @@
 #!/bin/bash
 ### Base info
 _name_repo="aur-kernel"												# Full Name repo
-_full_arch=("any" "i686" "x86_64")										# Full type archive repos
+_full_arch=("any" "i686" "x86_64")									# Full type archive repos
 _repo_i686_type=( "zst" )											# Archive on i686 repo update
 _repo_x86_64_type=( "zst" )											# Archive on x86_64 repo update
 _repo_any_type=( "zst" ) 											# Archive on any repo update

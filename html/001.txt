@@ -19,7 +19,7 @@ cat srcinfo.txt | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "x
 cat srcinfo.txt | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "i686" | sed 's/makedepends_i686 = //g' | sed 's/makedepends_x86_64 = //g'
 
 
-cat srcinfo.txt | grep -Ei "^pkgname" | sed "s/pkgname = //g"
+cat srcinfo.txt | grep -Ei "^pkgbase" | sed "s/pkgbase = //g"
 cat srcinfo.txt | grep -Ei "^pkgver" | sed "s/pkgver = //g"
 cat srcinfo.txt | grep -Ei "^pkgrel" | sed "s/pkgrel = //g"
 cat srcinfo.txt | grep -Ei "^url" | sed "s/url = //g"
