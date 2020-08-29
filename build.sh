@@ -9,9 +9,11 @@ for i in ${_files[*]}; do
 done
 unset _files
 wait
-# unpack "$filesdir/os/x86_64/linux-lts44-4.4.232-1-x86_64.pkg.tar.zst"
-cd "${_pkgbuild_dir}"
-prepare_build
+# prepare_build
+# prepare_archivers
+###
 
+###
+# end_archivers
 cd "$filesdir/"
 exit 0

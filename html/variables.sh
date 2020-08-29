@@ -10,7 +10,8 @@ _flag_update=( "0" "1") 											# Update repo in x86_64 and not update i686
 _repo_os_dir="${filesdir}/os"										# OS dir Repo
 _pkgbuild_dir="${filesdir}/PKGBUILD"								# PKGBUILD Dir
 _pkgbuild_bool=1 													# Flag PKGBUILD update
-out_file="$filesdir/primer.html"												# Output HTML File
+out_file="$filesdir/primer.html"									# Output HTML File
+_html_dir="$filesdir/html"											# HTML Directory
 ### HTML
 _html_start="$filesdir/html/html_start.txt"							# HTML structure part start
 _html_end="$filesdir/html/html_finish.txt"							# HTML structure part finish
@@ -36,4 +37,6 @@ _div_end="</div>"													# </div>
 _br="<br>"															# <br>
 ### Build Function
 declare -a _gz_files												# *.tar.gz archivers
-declare -a _gz_dir													# dirname on directory *.tar.gz archivers
+declare -a _gz_name													# dirname on directory *.tar.gz archivers
+_xz_zst_name=""														# *.tar.xz or *.tar.zst archivers
+_pkginfo_dir="$filesdir/pkginfo"									# .PKGINFO Directory

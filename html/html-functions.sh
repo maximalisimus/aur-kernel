@@ -66,7 +66,7 @@ function out_td_depend_start()
 }
 function out_depend_part()
 {
-	please_wait
+	echo "Search for dependencies in official repositories and AUR."
 	_depend_name="$1"
 	_pkg_srch=$(echo "$_depend_name" | sed "s/>=.*//g" | sed "s/<=.*//g")
 	_search_result=$(pacman -Ss ${_pkg_srch[*]} | grep -Ei "core|extra|community|multilib" | wc -l)
@@ -86,4 +86,15 @@ function out_depend_part()
 function out_td_depend_end()
 {
 	echo -e -n "${_tab_7}${_div_end}\n${_tab_6}${_td_end}\n" >> ${out_file}
+}
+function cut_html()
+{
+	sed -i "/<\/tbody>/q" "${out_file}"
+	sed -i "/<\/tbody>/d" "${out_file}"
+}
+function paste_html()
+{
+	### End html ###
+	out_html_end
+	### End html ###
 }
