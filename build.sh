@@ -9,10 +9,19 @@ for i in ${_files[*]}; do
 done
 unset _files
 wait
-# prepare_build
+prepare_build
 # prepare_archivers
 ###
-
+count=0
+for i in ${_gz_name[*]}; do
+	_info_pkg=$(find "${_pkginfo_dir}" -type f -iname "$i*" | grep -Evi "_src")
+	_info_src=$(find "${_pkginfo_dir}" -type f -iname "$i*" | grep -Ei "_src")
+	_date_build=$(cat "${_info_pkg[*]}" | grep -Ei "^builddate" | sed "s/builddate = //g")
+	_on_date=$(date -d @${_date_build[*]} +'%Y-%m-%d') 	### Date
+	unset _date_build
+	
+	let count+=1
+done
 ###
 # end_archivers
 cd "$filesdir/"

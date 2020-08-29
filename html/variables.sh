@@ -35,8 +35,11 @@ _div_start="<div id=\""												# div hidden block part 1
 _div_part="\" style=\"display: none;\">"							# div hidden block part 2
 _div_end="</div>"													# </div>
 _br="<br>"															# <br>
+_make_flag=0														# 0 - dependens; 1 - makedependens_i686; 2 - makedependens_x86_64
 ### Build Function
 declare -a _gz_files												# *.tar.gz archivers
 declare -a _gz_name													# dirname on directory *.tar.gz archivers
 _xz_zst_name=""														# *.tar.xz or *.tar.zst archivers
 _pkginfo_dir="$filesdir/pkginfo"									# .PKGINFO Directory
+_info_pkg=""														# .PKGINFO File to pkginfo directory
+_info_src=""														# .SRCINFO File to pkginfo directory
