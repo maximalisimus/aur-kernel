@@ -34,3 +34,6 @@ _div_start="<div id=\""												# div hidden block part 1
 _div_part="\" style=\"display: none;\">"							# div hidden block part 2
 _div_end="</div>"													# </div>
 _br="<br>"															# <br>
+### Build Function
+declare -a _gz_files												# *.tar.gz archivers
+declare -a _gz_dir													# dirname on directory *.tar.gz archivers
