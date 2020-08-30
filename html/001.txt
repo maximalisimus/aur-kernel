@@ -31,3 +31,5 @@ cat srcinfo.txt | grep -Ei "^license" | sed 's/license = //g' | xargs
 _date_build=$(cat pkginfo.txt | grep -Ei "^builddate" | sed "s/builddate = //g")
 date -d @${_date_build[*]} +'%Y-%m-%d'
 
+find ./ -type f | grep -Evi "index.html|sha256sums.txt" | wc -l
+
