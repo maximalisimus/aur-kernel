@@ -79,7 +79,7 @@ function full_update()
 {
 	if [[ $_pkgbuild_bool -eq 1 ]]; then
 		cd ${_pkgbuild_dir}
-		md5sum * | grep -Evi "index.html|md5sums.txt" > md5sums.txt
+		sha256sum * | grep -Evi "index.html|sha256sums.txt" > sha256sums.txt
 		wait
 		apindex .
 		wait
