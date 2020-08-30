@@ -54,3 +54,38 @@ function end_archivers()
 {
 	rm -rf "${_pkginfo_dir}"
 }
+function get_info_pkgs()
+{
+	_date_build=$(cat "${_info_pkg[*]}" | grep -Ei "^builddate" | sed "s/builddate = //g")
+	_on_date=$(date -d @${_date_build[*]} +'%Y-%m-%d') 	### Date
+	unset _date_build
+	_on_pkgname=$(cat ${_info_src} | grep -Ei "^pkgbase" | sed "s/pkgbase = //g") # Package Name
+	_on_pkgver=$(cat ${_info_src} | grep -Ei "^pkgver" | sed "s/pkgver = //g") # Package Version
+	_on_pkgrel=$(cat ${_info_src} | grep -Ei "^pkgrel" | sed "s/pkgrel = //g") # Package Release
+	_on_pkgdesc=$(cat ${_info_src} | grep -Ei "^pkgdesc" | sed "s/pkgdesc = //g") # Package Description
+	_on_pkgarch=$(cat ${_info_src} | grep -Ei "^arch" | sed 's/arch = //g' | xargs) # Package arch
+	_on_pkglicense=$(cat ${_info_src} | grep -Ei "^license" | sed 's/license = //g' | xargs) # Package License
+	_as_pkgoptdepends=$(cat ${_info_src} | grep -Ei "^optdepends" | sed 's/optdepends = //g' | sed 's/:.*//g' | xargs)
+	_on_pkgoptdepends=( $_as_pkgoptdepends ) # Package Optdepends
+	unset _as_pkgoptdepends
+	_as_pkgdepends=$(cat ${_info_src} | grep -Ei "^depends" | sed 's/depends = //g' | xargs)
+	_on_pkgdepends=( $_as_pkgdepends ) # Package Depends
+	unset _as_pkgdepends
+	_flag_md_i686=$(cat ${_info_src} | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "i686" | wc -l) # Flag to makepedends_i686
+	_flag_md_x86_64=$(cat ${_info_src} | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "x86_64" | wc -l) # Flag to makedepends_x86_64
+	_as_pkgmakedepends=$(cat ${_info_src} | grep -Ei "^makedepends" | grep -Evi "i686|x86_64" | sed 's/makedepends = //g' | xargs) # Package makedepends
+	_on_pkgmakedepends=( $_as_pkgmakedepends )
+	unset _as_pkgmakedepends
+	if [[ ${_flag_md_i686[*]} == "1" ]]; then
+		_as_pkgmakedepends_i686=$(cat ${_info_src} | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "i686" | sed 's/makedepends_i686 = //g' | sed 's/makedepends_x86_64 = //g' | xargs)
+		_on_pkgmakedepends_i686=( $_as_pkgmakedepends_i686 )
+		unset _as_pkgmakedepends_i686
+		# Package makedepends_i686
+	fi
+	if [[ ${_flag_md_x86_64[*]} == "1" ]]; then
+		_as_pkgmakedepends_x86_64=$(cat ${_info_src} | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "x86_64" | sed 's/makedepends_i686 = //g' | sed 's/makedepends_x86_64 = //g' | xargs)
+		_on_pkgmakedepends_x86_64=( $_as_pkgmakedepends_x86_64 )
+		unset _as_pkgmakedepends_x86_64
+		# Package makedepends_x86_64
+	fi
+}

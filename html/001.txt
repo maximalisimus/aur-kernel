@@ -14,7 +14,11 @@ cat srcinfo.txt | grep -Ei "^depends" | sed 's/depends = //g'
 
 cat srcinfo.txt | grep -Ei "^makedepends" | grep -Evi "i686|x86_64" | sed 's/makedepends = //g'
 
+cat srcinfo.txt | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "x86_64" | wc -l
+
 cat srcinfo.txt | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "x86_64" | sed 's/makedepends_i686 = //g' | sed 's/makedepends_x86_64 = //g'
+
+cat srcinfo.txt | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "i686" | wc -l
 
 cat srcinfo.txt | grep -Ei "^makedepends" | grep -Ei "i686|x86_64" | grep -Ei "i686" | sed 's/makedepends_i686 = //g' | sed 's/makedepends_x86_64 = //g'
 
