@@ -1,0 +1,5 @@
+Name				Version			Arch		Date		License
+linux-lts49			4.9.232-1		x86_64		2020-08-03	GPL2
+linux-lts316			3.16.85-1		i686_x86_64		2020-06-24	GPL2
+linux-lts44			4.4.232-1		x86_64		2020-08-03	GPL2
+linux-lts414			4.14.193-1		x86_64		2020-08-03	GPL2

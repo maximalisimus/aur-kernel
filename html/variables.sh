@@ -10,10 +10,10 @@ _flag_update=( "0" "1") 											# Update repo in x86_64 and not update i686
 _repo_os_dir="${filesdir}/os"										# OS dir Repo
 _pkgbuild_dir="${filesdir}/PKGBUILD"								# PKGBUILD Dir
 _pkgbuild_bool=1 													# Flag PKGBUILD update
-out_file="$filesdir/primer.html"									# Output HTML File
+out_file="$filesdir/Release.html"									# Output HTML File
 _html_dir="$filesdir/html"											# HTML Directory
-_pkgbuild_version"$_pkgbuild_dir/version.txt"						# PKGBUILD/version.txt
-_flag_prepare_archive=0												# Flag preparation archivers to .PKGINFO .SRCINFO files
+_pkgbuild_version="${_pkgbuild_dir}/version.txt"						# PKGBUILD/version.txt
+_flag_prepare_archive=1												# Flag preparation archivers to .PKGINFO .SRCINFO files
 ### Base info ###
 ### HTML ###
 _html_start="$filesdir/html/html_start.txt"							# HTML structure part start

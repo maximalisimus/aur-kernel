@@ -177,6 +177,8 @@ function full_build()
 	### End html ###
 	out_html_end
 	### End html ###
+	cd "${_pkgbuild_dir}"
+	apindex .
 	cd "$filesdir/"
 	end_archivers
 	### Full Build ###

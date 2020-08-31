@@ -2,6 +2,7 @@
 function out_html_start()
 {
 	cat ${_html_start} > ${out_file}
+	echo "Search for dependencies in official repositories and AUR."
 }
 function out_html_end()
 {
@@ -66,7 +67,6 @@ function out_td_depend_start()
 }
 function out_depend_part()
 {
-	echo "Search for dependencies in official repositories and AUR."
 	_depend_name="$1"
 	_pkg_srch=$(echo "$_depend_name" | sed "s/>=.*//g" | sed "s/<=.*//g")
 	_search_result=$(pacman -Ss ${_pkg_srch[*]} | grep -Ei "core|extra|community|multilib" | wc -l)
