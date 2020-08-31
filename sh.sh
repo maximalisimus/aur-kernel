@@ -37,6 +37,21 @@ out_td_depend_start "3" # TD: Makedependenses start
 for i in ${_makedependens[*]}; do
 	out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
 done
+### MakeDepend Flag ###
+if [[ $_make_flag -eq 0 ]]; then
+		echo -e -n ""
+elif [[ $_make_flag -eq 1 ]]; then
+	out_td_depend_mflag "1"
+	for i in ${_on_pkgmakedepends_i686[*]}; do
+		out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
+	done
+else
+	out_td_depend_mflag "2"
+	for i in ${_on_pkgmakedepends_x86_64[*]}; do
+		out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
+	done
+fi
+### MakeDepend Flag ###
 out_td_depend_end # TD: Makedependenses end
 ### Debug ###
 _desc="A powerful and productive integrated development environment (IDE) for R programming language"

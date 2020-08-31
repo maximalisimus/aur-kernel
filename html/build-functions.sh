@@ -64,6 +64,7 @@ function get_info_pkgs()
 	_on_pkgrel=$(cat ${_info_src} | grep -Ei "^pkgrel" | sed "s/pkgrel = //g") # Package Release
 	_on_pkgdesc=$(cat ${_info_src} | grep -Ei "^pkgdesc" | sed "s/pkgdesc = //g") # Package Description
 	_on_pkgarch=$(cat ${_info_src} | grep -Ei "^arch" | sed 's/arch = //g' | xargs) # Package arch
+	_on_pkgarch_v=$(cat ${_info_src} | grep -Ei "^arch" | sed 's/arch = //g' | xargs | tr ' ' '_') # Package arch version.txt
 	_on_pkglicense=$(cat ${_info_src} | grep -Ei "^license" | sed 's/license = //g' | xargs) # Package License
 	_as_pkgoptdepends=$(cat ${_info_src} | grep -Ei "^optdepends" | sed 's/optdepends = //g' | sed 's/:.*//g' | xargs)
 	_on_pkgoptdepends=( $_as_pkgoptdepends ) # Package Optdepends

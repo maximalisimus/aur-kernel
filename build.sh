@@ -12,6 +12,7 @@ wait
 prepare_build
 # prepare_archivers
 ###
+# echo -e -n "Name\t\t\t\tVersion\t\t\tArch\t\tDate\t\tLicense\n" #> "$filesdir/001.txt"
 count=0
 for i in ${_gz_name[*]}; do
 	#_info_pkg=$(find "${_pkginfo_dir}" -type f -iname "$i*" | grep -Evi "_src")
@@ -20,7 +21,7 @@ for i in ${_gz_name[*]}; do
 	_info_src="${_pkginfo_dir}/${i}_src.txt"
 	get_info_pkgs
 	### DEBUG ###
-	# echo -e -n "${_on_pkgname}\t\t${_on_pkgver}-${_on_pkgrel}\t${_on_pkgarch}\t\t${_on_date}\t${_on_pkglicense}\n"
+	# echo -e -n "${_on_pkgname}\t\t\t${_on_pkgver}-${_on_pkgrel}\t\t${_on_pkgarch_v}\t\t${_on_date}\t${_on_pkglicense}\n" #>> "$filesdir/001.txt"
 	# echo -e -n "${_on_pkgdepends[*]}\n" | xargs
 	# echo -e -n "${_on_pkgoptdepends[*]}\n" | xargs
 	# echo -e -n "${_on_pkgmakedepends[0]}\n"

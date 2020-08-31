@@ -51,6 +51,7 @@ _on_pkgver=""														# Package Version
 _on_pkgrel=""														# Package Release
 _on_pkgdesc=""														# Package Description
 _on_pkgarch=""														# Package arch
+_on_pkgarch_v=""													# Package arch version.txt
 _on_pkglicense=""													# Package License
 _on_pkgoptdepends=""												# Package Optdepends
 _on_pkgdepends=""													# Package Depends

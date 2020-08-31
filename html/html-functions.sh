@@ -72,38 +72,26 @@ function out_depend_part()
 	_search_result=$(pacman -Ss ${_pkg_srch[*]} | grep -Ei "core|extra|community|multilib" | wc -l)
 	wait
 	please_wait
-	if [[ $_make_flag -eq 0 ]]; then
-		if [[ ${_search_result[*]} -ge 1 ]]; then
-			echo -e -n "${_tab_8}${_a_open}${_arch_search_start}${_pkg_srch[*]}${_arch_search_end}${_a_close}" >> ${out_file}
-			echo -e -n "${_depend_name}${_a_end}${_br}\n" >> ${out_file}
-		else
-			echo -e -n "${_tab_8}${_a_open}${_aur_search}${_pkg_srch[*]}${_a_close}" >> ${out_file}
-			echo -e -n "${_depend_name}${_a_end}${_br}\n" >> ${out_file}
-		fi
-	elif [[ $_make_flag -eq 1 ]]; then
-		if [[ ${_search_result[*]} -ge 1 ]]; then
-			echo -e -n "${_tab_8}i686:${_br}\n" >> ${out_file}
-			echo -e -n "${_tab_8}${_a_open}${_arch_search_start}${_pkg_srch[*]}${_arch_search_end}${_a_close}" >> ${out_file}
-			echo -e -n "${_depend_name}${_a_end}${_br}\n" >> ${out_file}
-		else
-			echo -e -n "${_tab_8}i686:${_br}\n" >> ${out_file}
-			echo -e -n "${_tab_8}${_a_open}${_aur_search}${_pkg_srch[*]}${_a_close}" >> ${out_file}
-			echo -e -n "${_depend_name}${_a_end}${_br}\n" >> ${out_file}
-		fi
+	if [[ ${_search_result[*]} -ge 1 ]]; then
+		echo -e -n "${_tab_8}${_a_open}${_arch_search_start}${_pkg_srch[*]}${_arch_search_end}${_a_close}" >> ${out_file}
+		echo -e -n "${_depend_name}${_a_end}${_br}\n" >> ${out_file}
 	else
-		if [[ ${_search_result[*]} -ge 1 ]]; then
-			echo -e -n "${_tab_8}x86_64:${_br}\n" >> ${out_file}
-			echo -e -n "${_tab_8}${_a_open}${_arch_search_start}${_pkg_srch[*]}${_arch_search_end}${_a_close}" >> ${out_file}
-			echo -e -n "${_depend_name}${_a_end}${_br}\n" >> ${out_file}
-		else
-			echo -e -n "${_tab_8}x86_64:${_br}\n" >> ${out_file}
-			echo -e -n "${_tab_8}${_a_open}${_aur_search}${_pkg_srch[*]}${_a_close}" >> ${out_file}
-			echo -e -n "${_depend_name}${_a_end}${_br}\n" >> ${out_file}
-		fi
+		echo -e -n "${_tab_8}${_a_open}${_aur_search}${_pkg_srch[*]}${_a_close}" >> ${out_file}
+		echo -e -n "${_depend_name}${_a_end}${_br}\n" >> ${out_file}
 	fi
 	wait
 	unset _depend_name
 	please_wait
+}
+function out_td_depend_mflag()
+{
+	if [[ $1 -eq 0 ]]; then
+		echo -e -n ""
+	elif [[ $1 -eq 1 ]]; then
+		echo -e -n "${_tab_8}i686:${_br}\n" >> ${out_file}
+	else
+		echo -e -n "${_tab_8}x86_64:${_br}\n" >> ${out_file}
+	fi
 }
 function out_td_depend_end()
 {
