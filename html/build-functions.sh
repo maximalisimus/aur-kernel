@@ -90,3 +90,94 @@ function get_info_pkgs()
 		# Package makedepends_x86_64
 	fi
 }
+function out_version_txt()
+{
+	echo -e -n "${_on_pkgname}\t\t\t${_on_pkgver}-${_on_pkgrel}\t\t${_on_pkgarch_v}\t\t${_on_date}\t${_on_pkglicense}\n" >> "${_pkgbuild_version}"
+}
+function out_html_string()
+{
+	### Output html string info ###
+	out_tr_start ### TR
+	out_base_info "${_on_pkgname[*]}" "${_on_pkgver[*]}-${_on_pkgrel[*]}" "${_on_pkgarch[*]}" "${_on_date[*]}" "${_on_pkglicense[*]}" # name / version / arch / date / license
+	wait
+	out_td_depend_start "$count" # TD: Dependens start
+	wait
+	for i in ${_on_pkgdepends[*]}; do
+		out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
+	done
+	wait
+	out_td_depend_end # TD: Dependens end
+	let count+=1
+	wait
+	out_td_depend_start "$count" # TD: Optdependens start
+	wait
+	for j in ${_on_pkgoptdepends[*]}; do
+		out_depend_part "$j" # TD: a link in packages on search to aur or archlinux.org
+	done
+	wait
+	out_td_depend_end # TD: Optdependens end
+	let count+=1
+	wait
+	out_td_depend_start "$count" # TD: Makedependenses start
+	wait
+	for k in ${_on_pkgmakedepends[*]}; do
+		out_depend_part "$k" # TD: a link in packages on search to aur or archlinux.org
+	done
+	wait
+	if [[ ${_flag_md_i686[*]} == "1" ]]; then
+		out_td_depend_mflag "0" # Out 8 tabulation and text: "i686:"
+		wait
+		for i in ${_on_pkgmakedepends_i686[*]}; do
+			out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
+		done
+		wait
+	fi
+	wait
+	if [[ ${_flag_md_x86_64[*]} == "1" ]]; then
+		out_td_depend_mflag "1" # Out 8 tabulation and text: "x86_64:"
+		wait
+		for i in ${_on_pkgmakedepends_x86_64[*]}; do
+			out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
+		done
+		wait
+	fi
+	wait
+	out_td_depend_end # TD: Makedependenses end
+	wait
+	echo -e -n "${_tab_6}${_td_start}${_on_pkgdesc}${_td_end}\n" >> ${out_file} # TD: Description
+	out_tr_end ### TR
+	let count+=1
+	wait
+	### Output html string info ###
+}
+function full_build()
+{
+	### Full Build ###
+	if [[ $_flag_prepare_archive -eq 1 ]]; then
+		prepare_archivers
+	fi
+	echo -e -n "Name\t\t\t\tVersion\t\t\tArch\t\tDate\t\tLicense\n" > "${_pkgbuild_version}"
+	### Start html ###
+	out_html_start
+	### Start html ###
+	count=1
+	for i in ${_gz_name[*]}; do
+		#_info_pkg=$(find "${_pkginfo_dir}" -type f -iname "$i*" | grep -Evi "_src")
+		#_info_src=$(find "${_pkginfo_dir}" -type f -iname "$i*" | grep -Ei "_src")
+		_info_pkg="${_pkginfo_dir}/${i}.txt"
+		_info_src="${_pkginfo_dir}/${i}_src.txt"
+		wait
+		get_info_pkgs
+		wait
+		out_version_txt
+		wait
+		out_html_string
+		wait
+	done
+	### End html ###
+	out_html_end
+	### End html ###
+	cd "$filesdir/"
+	end_archivers
+	### Full Build ###
+}

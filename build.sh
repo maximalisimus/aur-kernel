@@ -10,22 +10,5 @@ done
 unset _files
 wait
 prepare_build
-# prepare_archivers
-###
-# echo -e -n "Name\t\t\t\tVersion\t\t\tArch\t\tDate\t\tLicense\n" #> "$filesdir/001.txt"
-count=0
-for i in ${_gz_name[*]}; do
-	#_info_pkg=$(find "${_pkginfo_dir}" -type f -iname "$i*" | grep -Evi "_src")
-	#_info_src=$(find "${_pkginfo_dir}" -type f -iname "$i*" | grep -Ei "_src")
-	_info_pkg="${_pkginfo_dir}/${i}.txt"
-	_info_src="${_pkginfo_dir}/${i}_src.txt"
-	get_info_pkgs
-	### DEBUG ###
-	# echo -e -n "${_on_pkgname}\t\t\t${_on_pkgver}-${_on_pkgrel}\t\t${_on_pkgarch_v}\t\t${_on_date}\t${_on_pkglicense}\n" #>> "$filesdir/001.txt"
-	### DEBUG ###
-	let count+=1
-done
-###
-# end_archivers
-cd "$filesdir/"
+full_build
 exit 0

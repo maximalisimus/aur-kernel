@@ -13,7 +13,7 @@ wait
 out_html_start
 ### Start html ###
 out_tr_start ### TR
-out_base_info "rstudio-desktop-git" "1.2.5033.r5032-1" "i686 x86_64" "2020-08-03" "AGPL3" # name / version / arch / date
+out_base_info "rstudio-desktop-git" "1.2.5033.r5032-1" "i686 x86_64" "2020-08-03" "AGPL3" # name / version / arch / date / license
 ### Debug ###
 _depend=("r>=3.0.1" boost-libs qt5-sensors qt5-svg qt5-webengine qt5-xmlpatterns postgresql-libs sqlite3 soci clang hunspell-en_US mathjax2 pandoc)
 ### Debug ###
@@ -25,11 +25,11 @@ out_td_depend_end # TD: Dependens end
 ### Debug ###
 _outdepend=(git subversion openssh-askpass)
 ### Debug ###
-out_td_depend_start "2" # TD: Outdependens start
+out_td_depend_start "2" # TD: Optdependens start
 for i in ${_outdepend[*]}; do
 	out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
 done
-out_td_depend_end # TD: Outdependens end
+out_td_depend_end # TD: Optdependens end
 ### Debug ###
 _makedependens=(git cmake boost desktop-file-utils jdk8-openjdk apache-ant unzip openssl libcups pam patchelf wget yarn)
 ### Debug ###
