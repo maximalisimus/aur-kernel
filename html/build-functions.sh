@@ -144,8 +144,13 @@ function out_html_string()
 	wait
 	out_td_depend_end # TD: Makedependenses end
 	wait
-	echo -e -n "${_tab_6}${_td_start}${_on_pkgdesc}${_td_end}\n" >> ${out_file} # TD: Description
+	let count+=1
+	wait
+	out_td_depend_start "$count" # TD: Description more detailed...
+	echo -e -n "${_tab_8}${_on_pkgdesc}\n" >> ${out_file} # TD: Description
+	out_td_depend_end # TD: Description more detailed...
 	out_tr_end ### TR
+	wait
 	let count+=1
 	wait
 	### Output html string info ###
