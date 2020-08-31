@@ -85,9 +85,7 @@ function out_depend_part()
 }
 function out_td_depend_mflag()
 {
-	if [[ $1 -eq 0 ]]; then
-		echo -e -n ""
-	elif [[ $1 -eq 1 ]]; then
+	if [[ ${1} -eq 0 ]]; then
 		echo -e -n "${_tab_8}i686:${_br}\n" >> ${out_file}
 	else
 		echo -e -n "${_tab_8}x86_64:${_br}\n" >> ${out_file}

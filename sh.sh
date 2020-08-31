@@ -38,15 +38,14 @@ for i in ${_makedependens[*]}; do
 	out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
 done
 ### MakeDepend Flag ###
-if [[ $_make_flag -eq 0 ]]; then
-		echo -e -n ""
-elif [[ $_make_flag -eq 1 ]]; then
-	out_td_depend_mflag "1"
+if [[ ${_flag_md_i686[*]} == "1" ]]; then
+	out_td_depend_mflag "0" # Out 8 tabulation and text: "i686:"
 	for i in ${_on_pkgmakedepends_i686[*]}; do
 		out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
 	done
-else
-	out_td_depend_mflag "2"
+fi
+if [[ ${_flag_md_x86_64[*]} == "1" ]]; then
+	out_td_depend_mflag "1" # Out 8 tabulation and text: "x86_64:"
 	for i in ${_on_pkgmakedepends_x86_64[*]}; do
 		out_depend_part "$i" # TD: a link in packages on search to aur or archlinux.org
 	done

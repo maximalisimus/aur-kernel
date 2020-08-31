@@ -36,7 +36,6 @@ _div_start="<div id=\""												# div hidden block part 1
 _div_part="\" style=\"display: none;\">"							# div hidden block part 2
 _div_end="</div>"													# </div>
 _br="<br>"															# <br>
-_make_flag=0														# 0 - dependens; 1 - makedependens_i686; 2 - makedependens_x86_64
 ### HTML ###
 ### Build Function ###
 declare -a _gz_files												# *.tar.gz archivers

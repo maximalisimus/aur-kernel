@@ -22,15 +22,6 @@ for i in ${_gz_name[*]}; do
 	get_info_pkgs
 	### DEBUG ###
 	# echo -e -n "${_on_pkgname}\t\t\t${_on_pkgver}-${_on_pkgrel}\t\t${_on_pkgarch_v}\t\t${_on_date}\t${_on_pkglicense}\n" #>> "$filesdir/001.txt"
-	# echo -e -n "${_on_pkgdepends[*]}\n" | xargs
-	# echo -e -n "${_on_pkgoptdepends[*]}\n" | xargs
-	# echo -e -n "${_on_pkgmakedepends[0]}\n"
-	# if [[ ${_flag_md_i686[*]} == "1" ]]; then
-	#	echo -e -n "${_on_pkgmakedepends_i686[*]}\n"
-	# fi
-	# if [[ ${_flag_md_x86_64[*]} == "1" ]]; then
-	#	echo -e -n "${_on_pkgmakedepends_x86_64[*]}\n"
-	# fi
 	### DEBUG ###
 	let count+=1
 done
