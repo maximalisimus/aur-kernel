@@ -54,6 +54,10 @@ function end_archivers()
 {
 	rm -rf "${_pkginfo_dir}"
 }
+function read_pkgbuild()
+{
+	cat ${1} | sed "/^if/,/^fi/d" | sed 's/\#.*//g' | sed 's/^[ \t]*//' | awk '!/^$/{print $0}' | sed '/prepare/,$d' | sed '/build/,$d' | sed '/package/,$d' | grep -Evi "^set|\{|\}|^install|^'http|^_" | grep -Evi "^sha256sums|^md5sums" > ${2}
+}
 function get_info_pkgs()
 {
 	_date_build=$(cat "${_info_pkg[*]}" | grep -Ei "^builddate" | sed "s/builddate = //g")
