@@ -1,5 +1,5 @@
 # aur-kernel
-# https://maximalisimus.github.io/aur-kernel/
+# https://maximalisimus.github.io/repo/aur-kernel/
 
 Старые версии ядер для Archlinux.
 
@@ -16,7 +16,7 @@ Note the SigLevel string. All commits in this repository are digitally signed. T
 
 SigLevel = Never
 
-Server = https://maximalisimus.github.io/$repo/os/$arch
+Server = https://maximalisimus.github.io/repo/aur-kernel/$arch
 
 Однако вы можете отказаться от строки SigLevel, но сначало установите публичные ключи для "pacman".
 

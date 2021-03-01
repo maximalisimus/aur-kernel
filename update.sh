@@ -9,6 +9,6 @@ for i in ${_files[*]}; do
 done
 unset _files
 wait
-full_update
+
 wait
 exit 0
