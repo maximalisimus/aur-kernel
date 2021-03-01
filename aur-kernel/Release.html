@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Release</title>
+	<link rel="stylesheet" href="https://maximalisimus.github.io/repo/html/main.css">
+	<script src="https://maximalisimus.github.io/repo/html/script.js"></script>
+	<link rel="stylesheet" href="https://maximalisimus.github.io/repo/html/tablesorter/theme.default.min.css">
+	<script type="text/javascript" src="https://maximalisimus.github.io/repo/html/tablesorter/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="https://maximalisimus.github.io/repo/html/tablesorter/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="https://maximalisimus.github.io/repo/html/tablesorter/jquery.tablesorter.pager.js"></script>
+	<script type="text/javascript" src="https://maximalisimus.github.io/repo/html/tablesorter/jquery.tablesorter.widgets.min.js"></script>
+	<script>
+		$(function() {
+			$("#myTable").tablesorter({
+				theme: 'default',
+				widgets:['zebra'],
+				cancelSelection:false
+			}).tablesorterPager({
+				size:10,
+				container:$('#pager'),
+				positionFixed:false,
+				page:10,
+				cssNext:'.next',
+				cssPrev:'.prev',
+				cssFirst:'.first',
+				cssLast:'.last'
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="site">
+		<div class="header">
+			<div id="logo">
+				<a href="https://maximalisimus.github.io/repo/"><img src="https://maximalisimus.github.io/repo/html/logo.png" alt="AUR-KERNEL repositories" /></a>
+				<p>AUR-KERNEL</p>
+			</div>
+			<div id="menu">
+				<ul>
+					<li><a href="https://maximalisimus.github.io/repo/">Home</a></li>
+					<li><a href="https://maximalisimus.github.io/repo/os/i686">Packages i686</a></li>
+					<li><a href="https://maximalisimus.github.io/aur-kernel/os/x86_64">Packages x_86-64</a></li>
+					<li><a href="https://maximalisimus.github.io/aur-kernel/PKGBUILD">PKGBUILD</a></li>
+					<li><a href="https://maximalisimus.github.io/aur-kernel/README.html">README</a></li>
+					<li id="myselect"><a href="https://maximalisimus.github.io/aur-kernel/Release.html">Release</a></li>
+				</ul>
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+		<div class="content">
+			<div class="oninfo">
+				<h3>Подробная информация о каждом пакете данного репозитория
+				<br>(Detailed information about each package in this repository).<h3>
+			</div>
+			<div class="searches">
+				<input name="inform" id="inform" value="" placeholder="Поиск" type="search" onsearch="FindOnPage('inform')" onfocus="if (this.value == 'Поиск') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Поиск';}">
+				<input name="myBtn" id="myBtn" type="button" onclick="ClearOnPage()" value="Очистить"/>
+				<input name="btn" id="btn" type="button" onclick="javascript: FindOnPage('find'); return false;" value="Поиск"/>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="content">
+			<p><b>Last Updated</b> - Дата последней сборки пакета в данном репозитории.<br>
+				Date when the package was last built in this repository.
+			</p>
+			<p><b>Depends</b> - Массив имен пакетов, которые должны быть установлены для запуска программы из данного пакета.<br>
+				An array of packages that must be installed for the software to build and run.
+			</p>
+			<p><b>Optdepends</b> - Массив имен пакетов, которые не требуются для работы программы, но предлагают дополнительные функции.
+				Это может означать, что не все исполняемые файлы, предоставляемые пакетом, будут работать без соответствующих дополнительных зависимостей.<br>
+				An array of packages that are not needed for the software to function, but provide additional features.
+				This may imply that not all executables provided by a package will function without the respective optdepends.
+			</p>
+			<p><b>Makedepends</b> - Массив имен пакетов, которые должны быть установлены лишь для сборки пакета, но не нужны для использования программы после установки.<br>
+				An array of packages that are only required to build the software.
+			</p>
+		</div>
+		<div class="content">
+			<p>Найдено: 8 пакетов.</p>
+			<table id="myTable" class="results tablesorter">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Version</th>
+						<th>Arch</th>
+						<th>Last Updated</th>
+						<th>License</th>
+						<th class="tablesorter-noSort">Depends</th>
+						<th class="tablesorter-noSort">Optdepends</th>
+						<th class="tablesorter-noSort">Makedepends</th>
+						<th class="tablesorter-noSort">Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href="https://aur.archlinux.org/packages/?O=0&K=linux-lts49">linux-lts49</a></td>
+						<td>4.9.232-1</td>
+						<td>x86_64</td>
+						<td>2020-08-03</td>
+						<td>GPL2</td>
+						<td>
+							<a href="#hidden1" onclick="view('hidden1'); return false">More detailed...</a>
+							<div id="hidden1" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=coreutils&maintainer=&flagged=">coreutils</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=linux-firmware&maintainer=&flagged=">linux-firmware</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=kmod&maintainer=&flagged=">kmod</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=mkinitcpio&maintainer=&flagged=">mkinitcpio>=0.7</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden2" onclick="view('hidden2'); return false">More detailed...</a>
+							<div id="hidden2" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=crda&maintainer=&flagged=">crda</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden3" onclick="view('hidden3'); return false">More detailed...</a>
+							<div id="hidden3" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=xmlto&maintainer=&flagged=">xmlto</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=docbook-xsl&maintainer=&flagged=">docbook-xsl</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=kmod&maintainer=&flagged=">kmod</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=inetutils&maintainer=&flagged=">inetutils</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=bc&maintainer=&flagged=">bc</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=libelf&maintainer=&flagged=">libelf</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden4" onclick="view('hidden4'); return false">More detailed...</a>
+							<div id="hidden4" style="display: none;">
+								The Linux-lts49 kernel and modules
+Header files and scripts for building modules for Linux-lts49 kernel
+Kernel hackers manual - HTML documentation that comes with the Linux-lts49 kernel
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td><a href="https://aur.archlinux.org/packages/?O=0&K=linux-lts316">linux-lts316</a></td>
+						<td>3.16.85-1</td>
+						<td>i686 x86_64</td>
+						<td>2020-06-24</td>
+						<td>GPL2</td>
+						<td>
+							<a href="#hidden5" onclick="view('hidden5'); return false">More detailed...</a>
+							<div id="hidden5" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=coreutils&maintainer=&flagged=">coreutils</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=linux-firmware&maintainer=&flagged=">linux-firmware</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=kmod&maintainer=&flagged=">kmod</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=mkinitcpio&maintainer=&flagged=">mkinitcpio>=0.7</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden6" onclick="view('hidden6'); return false">More detailed...</a>
+							<div id="hidden6" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=crda&maintainer=&flagged=">crda</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden7" onclick="view('hidden7'); return false">More detailed...</a>
+							<div id="hidden7" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=xmlto&maintainer=&flagged=">xmlto</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=docbook-xsl&maintainer=&flagged=">docbook-xsl</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=kmod&maintainer=&flagged=">kmod</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=inetutils&maintainer=&flagged=">inetutils</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=bc&maintainer=&flagged=">bc</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden8" onclick="view('hidden8'); return false">More detailed...</a>
+							<div id="hidden8" style="display: none;">
+								The Linux-lts316 kernel and modules
+Header files and scripts for building modules for Linux-lts316 kernel
+Kernel hackers manual - HTML documentation that comes with the Linux-lts316 kernel
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td><a href="https://aur.archlinux.org/packages/?O=0&K=linux-lts44">linux-lts44</a></td>
+						<td>4.4.232-1</td>
+						<td>x86_64</td>
+						<td>2020-08-03</td>
+						<td>GPL2</td>
+						<td>
+							<a href="#hidden9" onclick="view('hidden9'); return false">More detailed...</a>
+							<div id="hidden9" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=coreutils&maintainer=&flagged=">coreutils</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=linux-firmware&maintainer=&flagged=">linux-firmware</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=kmod&maintainer=&flagged=">kmod</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=mkinitcpio&maintainer=&flagged=">mkinitcpio>=0.7</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden10" onclick="view('hidden10'); return false">More detailed...</a>
+							<div id="hidden10" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=crda&maintainer=&flagged=">crda</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden11" onclick="view('hidden11'); return false">More detailed...</a>
+							<div id="hidden11" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=xmlto&maintainer=&flagged=">xmlto</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=kmod&maintainer=&flagged=">kmod</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=inetutils&maintainer=&flagged=">inetutils</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=bc&maintainer=&flagged=">bc</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=libelf&maintainer=&flagged=">libelf</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden12" onclick="view('hidden12'); return false">More detailed...</a>
+							<div id="hidden12" style="display: none;">
+								The Linux-lts44 kernel and modules
+Header files and scripts for building modules for Linux-lts44 kernel
+Kernel hackers manual - HTML documentation that comes with the Linux-lts44 kernel
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td><a href="https://aur.archlinux.org/packages/?O=0&K=linux-lts414">linux-lts414</a></td>
+						<td>4.14.193-1</td>
+						<td>x86_64</td>
+						<td>2020-08-03</td>
+						<td>GPL2</td>
+						<td>
+							<a href="#hidden13" onclick="view('hidden13'); return false">More detailed...</a>
+							<div id="hidden13" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=coreutils&maintainer=&flagged=">coreutils</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=linux-firmware&maintainer=&flagged=">linux-firmware</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=kmod&maintainer=&flagged=">kmod</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=mkinitcpio&maintainer=&flagged=">mkinitcpio>=0.7</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden14" onclick="view('hidden14'); return false">More detailed...</a>
+							<div id="hidden14" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=crda&maintainer=&flagged=">crda</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden15" onclick="view('hidden15'); return false">More detailed...</a>
+							<div id="hidden15" style="display: none;">
+								<a href="https://www.archlinux.org/packages/?sort=&q=xmlto&maintainer=&flagged=">xmlto</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=kmod&maintainer=&flagged=">kmod</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=inetutils&maintainer=&flagged=">inetutils</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=bc&maintainer=&flagged=">bc</a><br>
+								<a href="https://www.archlinux.org/packages/?sort=&q=libelf&maintainer=&flagged=">libelf</a><br>
+							</div>
+						</td>
+						<td>
+							<a href="#hidden16" onclick="view('hidden16'); return false">More detailed...</a>
+							<div id="hidden16" style="display: none;">
+								The Linux-lts414 kernel and modules
+Header files and scripts for building modules for Linux-lts414 kernel
+Kernel hackers manual - HTML documentation that comes with the Linux-lts414 kernel
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div id="pager" class="pager">
+				<form>
+					<img src="https://maximalisimus.github.io/aur-kernel/html/images/first.png" class="first" />
+					<img src="https://maximalisimus.github.io/aur-kernel/html/images/prev.png" class="prev" />
+					<input type="text" class="pagedisplay" />
+					<img src="https://maximalisimus.github.io/aur-kernel/html/images/next.png" class="next" />
+					<img src="https://maximalisimus.github.io/aur-kernel/html/images/last.png" class="last" />
+					<select class="pagesize">
+						<option selected="selected" value="10">10</option>
+						<option value="20">20</option>
+						<option value="30">30</option>
+						<option value="40">40</option>
+						<option value="50">50</option>
+					</select>
+				</form>
+			</div>
+			<hr>
+			<p class="back"><a href="https://maximalisimus.github.io/aur-kernel/">&laquo; Назад (Back)</a></p>
+		</div>
+		<div class="about">
+			<p>Copyright &copy; 2020 by <a href="mailto:maximalis171091@yandex.ru">Mikhail Artamonov</a>. Разработано при подержке и содействии <a href="https://vk.com/nixscript">Nixscript</a>.<br>
+			Developed with the support and assistance of <a href="https://vk.com/nixscript">Nixscript</a>.</p>
+		</div>
+	</div>
+</body>
+</html>
