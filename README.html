@@ -30,120 +30,36 @@
 		<div class="content">
 			<h2>Russian</h2>
 			<h3>Описание</h3>
-			<p>В данном репозитории находятся старые версии ядер LTS с долгосрочной поддержкой для Archlinux.</p>
+			<p>Дополнительные репозитории для Archlinux.</p>
 			<h3>Подключение</h3>
 			<p>Для добавления репозитория в систему отредактируйте файл: /etc/pacman.conf<br>
 				Обратите внимание на строку SigLevel. Все коммиты данного репозитория верифицированы цифровой подписью. Поэтому выполнять проверку пакетов в "pacman" необязательно.
 			</p>
-			<blockquote>
-<pre><code id="codes">[aur-kernel]
-SigLevel = Never
-Server = https://maximalisimus.github.io/$repo/os/$arch</code></pre>
-			</blockquote>
-			<p>Однако вы можете отказаться от строки SigLevel, но для этого перед добавлением репозитория в конфигурацию pacman установите публичные ключи доступа.</p>
-			<blockquote>
-<pre><code id="codes">&#36; wget https://maximalisimus.github.io/elseworld-keyring/install-keyring.sh
-&#36; sudo sh install-keyring.sh</code></pre>
-			</blockquote>
-			<p>Или загрузите и установите публичные ключи доступа вручную следующими командами.</p>
-			<blockquote>
-<pre><code id="codes">&#36; sudo pacman-key --init
-&#36; wget https://maximalisimus.github.io/elseworld-keyring/elseworld{.gpg,-revoked,-trusted,-id.txt}
-&#36; sudo mv elseworld{.gpg,-revoked,-trusted} /usr/share/pacman/keyrings/
-&#36; sudo pacman-key --add /usr/share/pacman/keyrings/elseworld.gpg
-&#36; id_keyring=$(cat elseworld-id.txt)
-&#36; sudo pacman-key --lsign-key ${id_keyring}
-&#36; sudo pacman-key --populate archlinux elseworld
-&#36; rm -rf elseworld-id.txt</code></pre>
-			</blockquote>
+
 			<h3>Подробная информация о пакетах данного репозитория</h3>
 			<table border="0">
 				<tr><td align="right">Репозиторий с публичными ключами:</td><td width="10"></td><td><a href="https://maximalisimus.github.io/elseworld-keyring/">Release-keyring</a></td></tr>
-				<tr><td align="right">sha256sums:</td><td width="10"></td><td><a href="https://maximalisimus.github.io/aur-kernel/PKGBUILD/sha256sums.txt">sha256sums.txt</a></td></tr>
-				<tr><td align="right">Контроль версий (минимально):</td><td width="10"></td><td><a href="https://maximalisimus.github.io/aur-kernel/PKGBUILD/version.txt">version.txt</a></td></tr>
-				<tr><td align="right">Контроль версий (подробно):</td><td width="10"></td><td><a href="https://maximalisimus.github.io/aur-kernel/Release.html">Release.html</a></td></tr>
 			</table>
-			<p>Файл <a href="https://maximalisimus.github.io/aur-kernel/PKGBUILD/version.txt">version.txt</a> представляет из себя текстовый документ, в который выведена минимальная информация о пакетах данного репозитория.<br>
-				Предусмотрена возможность работы с файлом через консоль.</p>
-			<blockquote>
-<pre><code id="codes">&#36; cat version.txt
-&#36; cat version.txt | grep -Evi "^#" | sort | grep -Ei "linux-lts316" | awk '{print $1}'
-	&#36; linux-lts316
-&#36; cat version.txt | grep -Evi "^#" | sort | grep -Ei "linux-lts316" | awk '{print $2}'
-	&#36; 3.16.85-1</code></pre>
-			</blockquote>
-			<p>Аналогичный поиск минимальной информации по какому-либо пакету можно осуществить через pacman.</p>
-			<blockquote>
-<pre><code id="codes">&#36; pacman -Ss | grep -Ei "^community/" | sed 's/community\///g' | grep -Ei "supertuxkart" | awk '{print $1}'
-	&#36; supertuxkart
-&#36; pacman -Ss | grep -Ei "^community/" | sed 's/community\///g' | grep -Ei "supertuxkart" | awk '{print $2}'
-	&#36; 1.1-2</code></pre>
-			</blockquote>
-			<p>Файл <a href="https://maximalisimus.github.io/aur-kernel/Release.html">Release.html</a> представляет из себя веб-страницу с подробной информацией о каждом пакете данного репозитория в табличной форме.<br>
-				Страница поддерживает строку поиска.</p>
 			<p style="font-size: 13pt"><a href="https://maximalisimus.github.io/aur-kernel">&laquo; Назад</a></p>
 		</div>
 		<div class="content">	
 			<h2>English</h2>
 			<h3>Description</h3>
-			<p>This repository contains older versions of LTS cores with long-term support for Archlinux.</p>
+			<p>Additional repositories for Archlinux.</p>
 			<h3>Connection</h3>
 			<p>To add a repository to the system, edit the file: /etc/pacman.conf<br>
 				Note the SigLevel string. All commits in this repository are digitally signed. Therefore, it is not necessary to check packages in "pacman".
 			</p>
-			<blockquote>
-<pre><code id="codes">[aur-kernel]
-SigLevel = Never
-Server = https://maximalisimus.github.io/$repo/os/$arch</code></pre>
-			</blockquote>
-			<p>However, you can opt out of the SigLevel string, but set public access keys before adding the repository to the pacman configuration.</p>
-			<blockquote>
-<pre><code id="codes">&#36; wget https://maximalisimus.github.io/elseworld-keyring/install-keyring.sh
-&#36; sudo sh install-keyring.sh</code></pre>
-			</blockquote>
-			<p>Or download and install public access keys manually using the following commands.</p>
-			<blockquote>
-<pre><code id="codes">&#36; sudo pacman-key --init
-&#36; wget https://maximalisimus.github.io/elseworld-keyring/elseworld{.gpg,-revoked,-trusted,-id.txt}
-&#36; sudo mv elseworld{.gpg,-revoked,-trusted} /usr/share/pacman/keyrings/
-&#36; sudo pacman-key --add /usr/share/pacman/keyrings/elseworld.gpg
-&#36; id_keyring=$(cat elseworld-id.txt)
-&#36; sudo pacman-key --lsign-key ${id_keyring}
-&#36; sudo pacman-key --populate archlinux elseworld
-&#36; rm -rf elseworld-id.txt</code></pre>
-			</blockquote>
 			<h3>Detailed information about packages in this repository</h3>
 			<table border="0">
 				<tr><td align="right">Repository with public keys:</td><td width="10"></td><td><a href="https://maximalisimus.github.io/elseworld-keyring/">Release-keyring</a></td></tr>
-				<tr><td align="right">sha256sums:</td><td width="10"></td><td><a href="https://maximalisimus.github.io/aur-kernel/PKGBUILD/sha256sums.txt">sha256sums.txt</a></td></tr>
-				<tr><td align="right">Version control (minimum):</td><td width="10"></td><td><a href="https://maximalisimus.github.io/aur-kernel/PKGBUILD/version.txt">version.txt</a></td></tr>
-				<tr><td align="right">Version control (in detail):</td><td width="10"></td><td><a href="https://maximalisimus.github.io/aur-kernel/Release.html">Release.html</a></td></tr>
 			</table>
-			<p>The file <a href="https://maximalisimus.github.io/aur-kernel/PKGBUILD/version.txt">version.txt</a> is a text document that contains minimal information about the packages in this repository.<br>
-				You can work with the file via the console.
-			</p>
-			<blockquote>
-<pre><code id="codes">&#36; cat version.txt
-&#36; cat version.txt | grep -Evi "^#" | sort | grep -Ei "linux-lts316" | awk '{print $1}'
-	&#36; linux-lts316
-&#36; cat version.txt | grep -Evi "^#" | sort | grep -Ei "linux-lts316" | awk '{print $2}'
-	&#36; 3.16.85-1</code></pre>
-			</blockquote>
-			<p>A similar search for minimal information on any package can be performed via pacman.</p>
-			<blockquote>
-<pre><code id="codes">&#36; pacman -Ss | grep -Ei "^community/" | sed 's/community\///g' | grep -Ei "supertuxkart" | awk '{print $1}'
-	&#36; supertuxkart
-&#36; pacman -Ss | grep -Ei "^community/" | sed 's/community\///g' | grep -Ei "supertuxkart" | awk '{print $2}'
-	&#36; 1.1-2</code></pre>
-			</blockquote>
-			<p>The file <a href="https://maximalisimus.github.io/aur-kernel/Release.html">Release.html</a> is a web page with detailed information about each package of this repository in tabular form.<br>
-				The page supports the search bar.</p>
 			<p style="font-size: 13pt"><a href="https://maximalisimus.github.io/aur-kernel">&laquo; Back</a></p>
 		</div>
 		<div class="about">
-			<p>Copyright &copy; 2020 by <a href="mailto:maximalis171091@yandex.ru">Mikhail Artamonov</a>. Разработано при подержке и содействии <a href="https://vk.com/nixscript">Nixscript</a>.<br>
-			Developed with the support and assistance of <a href="https://vk.com/nixscript">Nixscript</a>.</p>
+			<p>Copyright &copy; 2020 by <a href="mailto:maximalis171091@yandex.ru">Mikhail Artamonov</a>.</p>
 		</div>
+		</br>
 	</div>
 </body>
 </html>
