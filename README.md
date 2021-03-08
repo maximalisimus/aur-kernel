@@ -1,7 +1,5 @@
 # repo
-# https://maximalisimus.github.io/repo/
-
-
+# https://github.com/maximalisimus/repo.git
 
 Однако вы можете отказаться от строки SigLevel, но сначало установите публичные ключи для "pacman".
 
